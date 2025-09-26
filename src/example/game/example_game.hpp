@@ -7,8 +7,8 @@
 
 #include <hsnr64/offset.hpp>
 #include <hsnr64/palette.hpp>
-#include "hsnr64/tilefont.hpp"
 #include <hsnr64/tilefont.hpp>
+#include <hsnr64/tiles.hpp>
 
 namespace JanSordid::SDL_Example
 {
@@ -37,6 +37,7 @@ namespace JanSordid::SDL_Example
 		Shooter,
 		Editor,
 		Rofl,
+		AdvEditor,
 		// "Invalid" is a special value, do NOT reproduce in your own game,
 		// its only purpose is to show how hard it would be to crash the game
 		Invalid,

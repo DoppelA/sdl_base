@@ -2,6 +2,7 @@
 
 #include "simpleeditor.hpp"
 #include "roflstate.hpp"
+#include "mapeditor.hpp"
 
 namespace JanSordid::SDL_Example
 {
@@ -18,7 +19,8 @@ namespace JanSordid::SDL_Example
 			CameraState,
 			ShooterState,
 			EditorState,
-			RoflState
+			RoflState,
+			MapEditorState
 			>( *this );
 
 		// Set initial State
@@ -75,6 +77,11 @@ namespace JanSordid::SDL_Example
 				else if( what_key.scancode == SDL_SCANCODE_7 )
 				{
 					ReplaceState( MyGS::Rofl );
+					return true;
+				}
+				else if( what_key.scancode == SDL_SCANCODE_8 )
+				{
+					ReplaceState( MyGS::AdvEditor );
 					return true;
 				}
 				else if( what_key.scancode == SDL_SCANCODE_0 )

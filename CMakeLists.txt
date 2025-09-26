@@ -256,6 +256,7 @@ add_executable( sor-example
         src/example/game/shooterstate.cpp
         src/example/game/simpleeditor.cpp
         src/example/game/roflstate.cpp
+        src/example/game/mapeditor.cpp
 )
 target_include_directories( sor-example PUBLIC src/ )
 target_link_libraries(      sor-example PUBLIC
