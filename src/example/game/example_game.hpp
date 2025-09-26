@@ -8,6 +8,7 @@
 #include <hsnr64/offset.hpp>
 #include <hsnr64/palette.hpp>
 #include "hsnr64/tilefont.hpp"
+#include <hsnr64/tilefont.hpp>
 
 namespace JanSordid::SDL_Example
 {
@@ -104,10 +105,10 @@ namespace JanSordid::SDL_Example
 		void Destroy()                  override;
 
 		bool HandleEvent( const Event & event ) override;
-		void Update( u64 framesSinceStart, u64 msSinceStart, f32 deltaT       ) override;
-		void Render( u64 framesSinceStart, u64 msSinceStart, f32 deltaTNeeded ) override;
+		void Update( const u64 framesSinceStart, const u64 msSinceStart, const f32 deltaT       ) override;
+		void Render( const u64 framesSinceStart, const u64 msSinceStart, const f32 deltaTNeeded ) override;
 		ImGuiOnly(
-			void RenderUI( u64 framesSinceStart, u64 msSinceStart, f32 deltaTNeeded ) override;)
+			void RenderUI( const u64 framesSinceStart, const u64 msSinceStart, const f32 deltaTNeeded ) override;)
 	};
 
 	class PlasmaState final : public MyGameState

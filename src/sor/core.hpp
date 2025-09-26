@@ -103,7 +103,10 @@ namespace JanSordid::Core
 	using u32   = std::uint32_t;
 	using u64   = std::uint64_t;
 
-	using isize = std::ptrdiff_t;
+//	using iptr  = std::intptr_t; // Kind of the same as below
+//	using uptr  = std::uintptr_t;
+
+	using idiff = std::ptrdiff_t; // or isize?
 	using usize = std::size_t;
 
 	using byte  = std::byte;
@@ -111,6 +114,12 @@ namespace JanSordid::Core
 	using f32   = float;
 	using f64   = double;
 
+	// E.g. for use as type in user defined literals
+	using imax  = std::intmax_t;
+	using umax  = std::uintmax_t;
+	using fmax  = long double; // this is not consistent, can be: f64, f80, f96, or f128
+
+	// TODO: Do all the other types as well?
 	constexpr f32  operator"" _f32 (long double n) { return (f32)n; }
 	constexpr f64  operator"" _f64 (long double n) { return (f64)n; }
 

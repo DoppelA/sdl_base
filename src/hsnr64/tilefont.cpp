@@ -335,7 +335,7 @@ namespace JanSordid::HSNR64
 		//SDL_DestroyTexture(tiles);
 		if( !_tiles )
 		{
-			Shared<Surface>
+			Owned<Surface>
 			//Surface *
 			    tileSurf = IMG_Load( BasePath "asset/graphic/hsnr64.png" );
 	//		SDL_SetColorKey( tileSurf, true, SDL_MapRGB( tileSurf->format, 178, 185, 212 ) );
@@ -509,7 +509,7 @@ namespace JanSordid::HSNR64
 			const Point index{ (int) (uc % stride), (int) (uc / stride) };
 
 			// TODO: Do the conversion to f32 inside this whole function
-			const FRect src       = toF( index * 16 + toWH( tilesize ) );
+			const FRect src       = toF( toWH( tilesize ) + (index * 16) );
 			const FRect dst_final = toF( dst + dst_off ); // Angry text: + Point{-2+rand()%5, -1+rand()%3};
 
 			renderFunc( _renderer, _tiles, src, dst_final );

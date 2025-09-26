@@ -302,11 +302,7 @@ namespace JanSordid::SDL_Example
 		{
 			constexpr const FPoint pivot   = { 10, 45 };
 			constexpr const Point  texSize = { 10, 26 };
-			constexpr const Rect   src     = {
-				texSize.x,
-				texSize.y,
-				texSize.x,
-				texSize.y };
+			constexpr const Rect   src     = toXYWH( texSize );
 			//for( auto & p : enemyProjectiles )
 			for( auto it = _enemyProjectiles.begin(); it != _enemyProjectiles.end(); ++it )
 			{
@@ -329,12 +325,8 @@ namespace JanSordid::SDL_Example
 
 		{
 			constexpr const FPoint pivot   = { 10, 9 };
-			constexpr const Point texSize = { 65, 9 };
-			constexpr const Rect  src     = {
-				texSize.x,
-				texSize.y,
-				texSize.x,
-				texSize.y };
+			constexpr const Point  texSize = { 65, 9 };
+			constexpr const Rect   src     = toXYWH( texSize );
 			for( auto it = _myProjectiles.begin(); it != _myProjectiles.end(); ++it )
 			{
 				auto & p = *it;

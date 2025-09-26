@@ -148,7 +148,7 @@ namespace JanSordid::SDL_Example
 			}
 
 			SDL_SetTextureColorMod( _blendedText, 255, 255, 255 );
-			const FRect dstRect = p + FRect{ 0, 0, _blendedTextSize.x, _blendedTextSize.y };
+			const FRect dstRect = toFRect( p, _blendedTextSize );
 			SDL_RenderTexture( renderer(), _blendedText, EntireFRect, &dstRect );
 		}
 	}

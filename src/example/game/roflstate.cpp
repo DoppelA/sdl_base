@@ -185,8 +185,11 @@ namespace JanSordid::SDL_Example
 					&dstRect,
 					0,
 					nullptr,
-					SDL_FLIP_NONE );
+					SDL_FlipMode::SDL_FLIP_NONE );
 			}
 		}
+
+		//SDL_SetRenderDrawColor( renderer(), 255, 255, 255, 255 );
+		//SDL_RenderDebugText(renderer(),100,100,"Hans hans");
 	}
 }
