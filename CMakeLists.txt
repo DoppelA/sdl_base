@@ -102,7 +102,7 @@ if( GCC OR CLANG )
     )
 endif()
 
-
+if( GCC OR CLANG )
 add_compile_options(
         -Wall
         -Wextra
@@ -148,6 +148,8 @@ add_compile_options(
         # Get messages from the vectorizer
         #$<$<CXX_COMPILER_ID:Clang>:-Rpass=loop-vectorize>
 )
+endif()
+
 
 if( NOT USE_RTTI )
     #add_compile_options( /GR- ) # MSVC?
