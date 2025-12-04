@@ -111,50 +111,50 @@ if( GCC OR CLANG )
 endif()
 
 if( GCC OR CLANG )
-add_compile_options(
-        -Wall
-        -Wextra
-        -Werror=parentheses
-        -Werror=return-type
-        -Werror=sequence-point
-        -Werror=uninitialized
-        -Werror=unused-result
-        -Werror=unused-value
-        $<$<CXX_COMPILER_ID:Clang>:-Werror=comma>
+    add_compile_options(
+            -Wall
+            -Wextra
+            -Werror=parentheses
+            -Werror=return-type
+            -Werror=sequence-point
+            -Werror=uninitialized
+            -Werror=unused-result
+            -Werror=unused-value
+            $<$<CXX_COMPILER_ID:Clang>:-Werror=comma>
 
-        ## Soften up some general rules which are too harsh, with no-* options
-        -Wno-unused-parameter                                                       # Base class functions can have plenty of unused parameters
-        $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:Clang>:-Wno-c++98-compat>>    # Do not strive for prehistoric compatibility
-        $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:GNU>:-Wno-volatile>>          # Senseless C++20 deprecation that has been de-deprecated for C++23, works in GCC 11 but not Clang 15
+            ## Soften up some general rules which are too harsh, with no-* options
+            -Wno-unused-parameter                                                       # Base class functions can have plenty of unused parameters
+            $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:Clang>:-Wno-c++98-compat>>    # Do not strive for prehistoric compatibility
+            $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:GNU>:-Wno-volatile>>          # Senseless C++20 deprecation that has been de-deprecated for C++23, works in GCC 11 but not Clang 15
 
-        $<$<COMPILE_LANGUAGE:CXX>:-Werror=deprecated-copy>
-        $<$<COMPILE_LANGUAGE:CXX>:-Werror=deprecated-copy-dtor>
-        $<$<COMPILE_LANGUAGE:CXX>:-Woverloaded-virtual>
+            $<$<COMPILE_LANGUAGE:CXX>:-Werror=deprecated-copy>
+            $<$<COMPILE_LANGUAGE:CXX>:-Werror=deprecated-copy-dtor>
+            $<$<COMPILE_LANGUAGE:CXX>:-Woverloaded-virtual>
 
-        # Outlaw variable shadowing
-        $<$<CXX_COMPILER_ID:GNU>:-Wshadow>
-        $<$<CXX_COMPILER_ID:GNU>:-Werror=shadow=local>
-        $<$<CXX_COMPILER_ID:Clang>:-Wshadow-all>
-        $<$<CXX_COMPILER_ID:Clang>:-Werror=shadow>
+            # Outlaw variable shadowing
+            $<$<CXX_COMPILER_ID:GNU>:-Wshadow>
+            $<$<CXX_COMPILER_ID:GNU>:-Werror=shadow=local>
+            $<$<CXX_COMPILER_ID:Clang>:-Wshadow-all>
+            $<$<CXX_COMPILER_ID:Clang>:-Werror=shadow>
 
-        $<$<COMPILE_LANGUAGE:CXX>:-Wdelete-non-virtual-dtor>
-        $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:Clang>:-Wdeprecated-dynamic-exception-spec>>
-        $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:Clang>:-Wdeprecated-implementations>>
+            $<$<COMPILE_LANGUAGE:CXX>:-Wdelete-non-virtual-dtor>
+            $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:Clang>:-Wdeprecated-dynamic-exception-spec>>
+            $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:Clang>:-Wdeprecated-implementations>>
 
-        #$<$<CXX_COMPILER_ID:Clang>:-Wno-unknown-attributes>                    # Clang 15 does not know [[(un)likely]], or does it?
+            #$<$<CXX_COMPILER_ID:Clang>:-Wno-unknown-attributes>                    # Clang 15 does not know [[(un)likely]], or does it?
 
-        $<$<COMPILE_LANGUAGE:CXX>:-Werror=suggest-override>
-        $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:Clang>:-Wweak-vtables>>
+            $<$<COMPILE_LANGUAGE:CXX>:-Werror=suggest-override>
+            $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:Clang>:-Wweak-vtables>>
 
-        # Extend constexpr recursion depth
-        $<$<COMPILE_LANGUAGE:CXX>:-fconstexpr-depth=127>
-        $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:GNU>:-fconstexpr-ops-limit=127124200>>
-        $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:Clang>:-fconstexpr-steps=127124200>>
-        # MSVC /constexpr:steps 127124200
+            # Extend constexpr recursion depth
+            $<$<COMPILE_LANGUAGE:CXX>:-fconstexpr-depth=127>
+            $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:GNU>:-fconstexpr-ops-limit=127124200>>
+            $<$<COMPILE_LANGUAGE:CXX>:$<$<CXX_COMPILER_ID:Clang>:-fconstexpr-steps=127124200>>
+            # MSVC /constexpr:steps 127124200
 
-        # Get messages from the vectorizer
-        #$<$<CXX_COMPILER_ID:Clang>:-Rpass=loop-vectorize>
-)
+            # Get messages from the vectorizer
+            #$<$<CXX_COMPILER_ID:Clang>:-Rpass=loop-vectorize>
+    )
 endif()
 
 
@@ -296,7 +296,7 @@ target_link_libraries(      sor-example PUBLIC
         $<TARGET_NAME_IF_EXISTS:imgui::imgui>
         $<TARGET_NAME_IF_EXISTS:implot::implot>
 
-    PRIVATE
+        PRIVATE
         $<TARGET_NAME_IF_EXISTS:nlohmann_json::nlohmann_json>
 
         $<TARGET_NAME_IF_EXISTS:OpenMP::OpenMP_CXX>
