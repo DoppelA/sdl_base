@@ -3,7 +3,7 @@ cmake_minimum_required( VERSION 3.14 )
 # Unused
 #list( APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake" )
 
-project( sdl_base LANGUAGES CXX )
+project( Card_Slinger LANGUAGES CXX )
 
 set( CMAKE_C_STANDARD               17  )
 set( CMAKE_CXX_STANDARD             20  )
